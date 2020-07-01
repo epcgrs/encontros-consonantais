@@ -37241,20 +37241,120 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 
 (function ($) {
   $(function () {
+    function slugify(str) {
+      var map = {
+        '': ' ',
+        '-': '_',
+        'a': 'á|à|ã|â|À|Á|Ã|Â',
+        'e': 'é|è|ê|É|È|Ê',
+        'i': 'í|ì|î|Í|Ì|Î',
+        'o': 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
+        'u': 'ú|ù|û|ü|Ú|Ù|Û|Ü',
+        'c': 'ç|Ç',
+        'n': 'ñ|Ñ'
+      };
+      str = str.toLowerCase();
+
+      for (var pattern in map) {
+        str = str.replace(new RegExp(map[pattern], 'g'), pattern);
+      }
+
+      return str;
+    }
+
+    function capitalize(s) {
+      if (typeof s !== 'string') return '';
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
     var word1 = {
       word: "gráfico",
-      syllables: ['grá', 'fi', 'co'],
-      type: "ECP"
+      syllables: ['gra', 'fi', 'co'],
+      type: "ecp"
+    };
+    var word2 = {
+      word: "gruta",
+      syllables: ['gru', 'ta'],
+      type: "ecp"
+    };
+    var word3 = {
+      word: "castelo",
+      syllables: ['cas', 'te', 'lo'],
+      type: "eci"
+    };
+    var word4 = {
+      word: "planta",
+      syllables: ['plan', 'ta'],
+      type: "eci"
+    };
+    var word5 = {
+      word: "ambiente",
+      syllables: ['am', 'bi', 'en', 'te'],
+      type: "eci"
+    };
+    var word6 = {
+      word: "porco",
+      syllables: ['por', 'co'],
+      type: "eci"
+    };
+    var word7 = {
+      word: "caderno",
+      syllables: ['ca', 'der', 'no'],
+      type: "eci"
+    };
+    var word8 = {
+      word: "almoço",
+      syllables: ['al', 'mo', 'ço'],
+      type: "eci"
+    };
+    var word9 = {
+      word: "almofada",
+      syllables: ['al', 'mo', 'fa', 'da'],
+      type: "eci"
+    };
+    var word10 = {
+      word: "palavra",
+      syllables: ['pa', 'la', 'vra'],
+      type: "ecp"
     };
     $(document).on('click', '#submitExercise', function (e) {
       e.preventDefault();
-      var word1Input = $('#input-one').val();
-      var word1Type = $('#type-one').val();
-      var word1ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: Gr\xE1fico</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: gr\xE1-fi-co</p>\n                        <p class=\"pt-2\">\n                           ".concat(word1Input === word1.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                        ").concat(word1Type === word1.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"result\">\n                    \n                    </div>\n                </li>\n            </ul>\n            ");
-      $('.results-wrapper').html(word1ResultTemplate);
+      var word1Input = slugify($('#input-one').val().toLowerCase());
+      var word1Type = slugify($('#type-one').val().toLowerCase());
+      var word1ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word1.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word1.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word1Input, "\n                            <br>\n                            ").concat(word1Input === word1.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word1Type, "\n                            <br>\n                            ").concat(word1Type === word1.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word2Input = slugify($('#input-two').val().toLowerCase());
+      var word2Type = slugify($('#type-two').val().toLowerCase());
+      var word2ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word2.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word2.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word2Input, "\n                            <br>\n                            ").concat(word2Input === word2.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word2Type, "\n                            <br>\n                            ").concat(word2Type === word2.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word3Input = slugify($('#input-three').val().toLowerCase());
+      var word3Type = slugify($('#type-three').val().toLowerCase());
+      var word3ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word3.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word3.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word3Input, "\n                            <br>\n                            ").concat(word3Input === word3.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word3Type, "\n                            <br>\n                            ").concat(word3Type === word3.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word4Input = slugify($('#input-four').val().toLowerCase());
+      var word4Type = slugify($('#type-four').val().toLowerCase());
+      var word4ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word4.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word4.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word4Input, "\n                            <br>\n                            ").concat(word4Input === word4.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word4Type, "\n                            <br>\n                            ").concat(word4Type === word4.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word5Input = slugify($('#input-five').val().toLowerCase());
+      var word5Type = slugify($('#type-five').val().toLowerCase());
+      var word5ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word5.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word5.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word5Input, "\n                            <br>\n                            ").concat(word5Input === word5.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word5Type, "\n                            <br>\n                            ").concat(word5Type === word5.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word6Input = slugify($('#input-six').val().toLowerCase());
+      var word6Type = slugify($('#type-six').val().toLowerCase());
+      var word6ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word6.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word6.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word6Input, "\n                            <br>\n                            ").concat(word6Input === word6.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word6Type, "\n                            <br>\n                            ").concat(word6Type === word6.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word7Input = slugify($('#input-seven').val().toLowerCase());
+      var word7Type = slugify($('#type-seven').val().toLowerCase());
+      var word7ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word7.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word7.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word7Input, "\n                            <br>\n                            ").concat(word7Input === word7.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word7Type, "\n                            <br>\n                            ").concat(word7Type === word7.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word8Input = slugify($('#input-eight').val().toLowerCase());
+      var word8Type = slugify($('#type-eight').val().toLowerCase());
+      var word8ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word8.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word8.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word8Input, "\n                            <br>\n                            ").concat(word8Input === word8.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word8Type, "\n                            <br>\n                            ").concat(word8Type === word8.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word9Input = slugify($('#input-nine').val().toLowerCase());
+      var word9Type = slugify($('#type-nine').val().toLowerCase());
+      var word9ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word9.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word9.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word9Input, "\n                            <br>\n                            ").concat(word9Input === word9.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word9Type, "\n                            <br>\n                            ").concat(word9Type === word9.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word10Input = slugify($('#input-ten').val().toLowerCase());
+      var word10Type = slugify($('#type-ten').val().toLowerCase());
+      var word10ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word10.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word10.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word10Input, "\n                            <br>\n                            ").concat(word10Input === word10.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word10Type, "\n                            <br>\n                            ").concat(word10Type === word10.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
+      $('.results-wrapper').html(word1ResultTemplate + word2ResultTemplate + word3ResultTemplate + word4ResultTemplate + word5ResultTemplate + word6ResultTemplate + word7ResultTemplate + word8ResultTemplate + word9ResultTemplate + word10ResultTemplate);
       $('html, body').animate({
         scrollTop: 800
       }, 450);
+      $(this).attr('disabled', 'true');
+      $(this).addClass('disabled');
     });
   });
 })(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
