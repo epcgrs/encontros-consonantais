@@ -1,11 +1,3 @@
-# Template Front-End
+# Encontros consonantais
 
-Um repositório com um template inicial para iniciar novos projetos em HTML usando o pré-processador de estilos e scripts do laravel o Laravel Mix.
-
-## Tecnologias
-- Sass
-- Bootstrap
-- Vue
-- Javascript
-- HTML
-- Laravel-Mix
+Exercícios estáticos sobre encontros consonantais feito em js
