@@ -37282,9 +37282,9 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
       type: "eci"
     };
     var word4 = {
-      word: "planta",
-      syllables: ['plan', 'ta'],
-      type: "eci"
+      word: "livro",
+      syllables: ['li', 'vro'],
+      type: "ecp"
     };
     var word5 = {
       word: "ambiente",

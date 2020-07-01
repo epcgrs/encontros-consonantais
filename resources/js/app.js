@@ -65,12 +65,12 @@ import 'bootstrap';
         };
 
         const word4 = {
-            word: "planta",
+            word: "livro",
             syllables: [
-                'plan',
-                'ta',
+                'li',
+                'vro',
             ],
-            type: "eci"
+            type: "ecp"
         };
 
         const word5 = {
