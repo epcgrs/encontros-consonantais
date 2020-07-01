@@ -31,7 +31,7 @@ import 'bootstrap';
             let word1ResultTemplate = `
             <ul class="list-group">
                 <li class="list-group-item">
-                    <p class="h4 mb-3">Palavra: gráfico</p>
+                    <p class="h4 mb-3">Palavra: Gráfico</p>
                     <div class="form-group">
                         <p class="h5">Sílabas: grá-fi-co</p>
                     </div>
@@ -47,7 +47,7 @@ import 'bootstrap';
 
 
             $('.results-wrapper').html(word1ResultTemplate)
-            console.log(word1ResultTemplate);
+            $('html, body').animate({ scrollTop: 800 }, 450);
         });
     });
 })(jQuery);

@@ -10935,11 +10935,6 @@ html {
   background-image: radial-gradient(ellipse cover at center, #01264d 0%, #000001 100%);
 }
 
-body {
-  height: 100%;
-  overflow: hidden;
-}
-
 .sprite,
 .body,
 .head,
@@ -10954,7 +10949,7 @@ body {
 }
 
 .wrapper {
-  position: absolute;
+  position: fixed;
   border-width: 1px;
   overflow: hidden;
   border-style: solid;
@@ -11487,5 +11482,9 @@ body {
   100% {
     top: -90px;
   }
+}
+
+#app {
+  padding-top: 300px;
 }
 

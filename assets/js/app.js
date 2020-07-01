@@ -37250,9 +37250,11 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
       e.preventDefault();
       var word1Input = $('#input-one').val();
       var word1Type = $('#type-one').val();
-      var word1ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: gr\xE1fico</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: gr\xE1-fi-co</p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                    </div>\n                    <div class=\"result\">\n                    ".concat(word1Input === word1.syllables.join('-') && word1Type === word1.type ? 'Acertou! &#x1F604;' : 'Errou! &#x1F615;', "\n                    </div>\n                </li>\n            </ul>\n            ");
+      var word1ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: Gr\xE1fico</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: gr\xE1-fi-co</p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                    </div>\n                    <div class=\"result\">\n                    ".concat(word1Input === word1.syllables.join('-') && word1Type === word1.type ? 'Acertou! &#x1F604;' : 'Errou! &#x1F615;', "\n                    </div>\n                </li>\n            </ul>\n            ");
       $('.results-wrapper').html(word1ResultTemplate);
-      console.log(word1ResultTemplate);
+      $('html, body').animate({
+        scrollTop: 800
+      }, 450);
     });
   });
 })(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
