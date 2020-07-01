@@ -37250,7 +37250,6 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
         'i': 'í|ì|î|Í|Ì|Î',
         'o': 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
         'u': 'ú|ù|û|ü|Ú|Ù|Û|Ü',
-        'c': 'ç|Ç',
         'n': 'ñ|Ñ'
       };
       str = str.toLowerCase();
@@ -37319,6 +37318,12 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
     };
     $(document).on('click', '#submitExercise', function (e) {
       e.preventDefault();
+
+      if (!$('#exercisesForm').get(0).checkValidity()) {
+        alert('Preencha todo o exercício antes de verificar!');
+        return;
+      }
+
       var word1Input = slugify($('#input-one').val().toLowerCase());
       var word1Type = slugify($('#type-one').val().toLowerCase());
       var word1ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word1.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word1.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word1Input, "\n                            <br>\n                            ").concat(word1Input === word1.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word1Type, "\n                            <br>\n                            ").concat(word1Type === word1.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
@@ -37349,9 +37354,92 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
       var word10Input = slugify($('#input-ten').val().toLowerCase());
       var word10Type = slugify($('#type-ten').val().toLowerCase());
       var word10ResultTemplate = "\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\">\n                    <p class=\"h4 mb-3\">Palavra: ".concat(capitalize(word10.word), "</p>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">S\xEDlabas: ").concat(word10.syllables.join('-'), "</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word10Input, "\n                            <br>\n                            ").concat(word10Input === word10.syllables.join('-') ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                    <div class=\"form-group\">\n                        <p class=\"h5\">Tipo: ECP</p>\n                        <p class=\"pt-2\">\n                            sua resposta: ").concat(word10Type, "\n                            <br>\n                            ").concat(word10Type === word10.type ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;', "\n                        </p>\n                    </div>\n                </li>\n            </ul>\n            ");
-      $('.results-wrapper').html(word1ResultTemplate + word2ResultTemplate + word3ResultTemplate + word4ResultTemplate + word5ResultTemplate + word6ResultTemplate + word7ResultTemplate + word8ResultTemplate + word9ResultTemplate + word10ResultTemplate);
+      var pontuacao = 0;
+
+      if (word1Input === word1.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word1Type === word1.type) {
+        pontuacao += 1;
+      }
+
+      if (word2Input === word2.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word2Type === word2.type) {
+        pontuacao += 1;
+      }
+
+      if (word3Input === word3.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word3Type === word3.type) {
+        pontuacao += 1;
+      }
+
+      if (word4Input === word4.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word4Type === word4.type) {
+        pontuacao += 1;
+      }
+
+      if (word5Input === word5.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word5Type === word5.type) {
+        pontuacao += 1;
+      }
+
+      if (word6Input === word6.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word6Type === word6.type) {
+        pontuacao += 1;
+      }
+
+      if (word7Input === word7.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word7Type === word7.type) {
+        pontuacao += 1;
+      }
+
+      if (word8Input === word8.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word8Type === word8.type) {
+        pontuacao += 1;
+      }
+
+      if (word9Input === word9.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word9Type === word9.type) {
+        pontuacao += 1;
+      }
+
+      if (word10Input === word10.syllables.join('-')) {
+        pontuacao += 1;
+      }
+
+      if (word10Type === word10.type) {
+        pontuacao += 1;
+      }
+
+      var resultTemplate = "\n                <div class=\"pt-3 pb-4\">\n                    <p class=\"h3 text-center font-weight-bold\">Pontua\xE7\xE3o: ".concat(pontuacao / 2, "</p>\n                </div>\n            ");
+      $('.results-wrapper').html(word1ResultTemplate + word2ResultTemplate + word3ResultTemplate + word4ResultTemplate + word5ResultTemplate + word6ResultTemplate + word7ResultTemplate + word8ResultTemplate + word9ResultTemplate + word10ResultTemplate + resultTemplate);
       $('html, body').animate({
-        scrollTop: 800
+        scrollTop: 2800
       }, 450);
       $(this).attr('disabled', 'true');
       $(this).addClass('disabled');

@@ -18,7 +18,6 @@ import 'bootstrap';
                 'i' : 'í|ì|î|Í|Ì|Î',
                 'o' : 'ó|ò|ô|õ|Ó|Ò|Ô|Õ',
                 'u' : 'ú|ù|û|ü|Ú|Ù|Û|Ü',
-                'c' : 'ç|Ç',
                 'n' : 'ñ|Ñ'
             };
 
@@ -138,6 +137,11 @@ import 'bootstrap';
 
         $(document).on('click', '#submitExercise', function (e) {
             e.preventDefault();
+
+            if(!$('#exercisesForm').get(0).checkValidity()) {
+               alert('Preencha todo o exercício antes de verificar!');
+               return;
+            }
 
             let word1Input = slugify($('#input-one').val().toLowerCase());
             let word1Type = slugify($('#type-one').val().toLowerCase());
@@ -409,6 +413,74 @@ import 'bootstrap';
             </ul>
             `;
 
+            let pontuacao = 0;
+
+            if ( word1Input === word1.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word1Type === word1.type ) {
+                pontuacao += 1;
+            }
+            if ( word2Input === word2.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word2Type === word2.type ) {
+                pontuacao += 1;
+            }
+            if ( word3Input === word3.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word3Type === word3.type ) {
+                pontuacao += 1;
+            }
+            if ( word4Input === word4.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word4Type === word4.type ) {
+                pontuacao += 1;
+            }
+            if ( word5Input === word5.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word5Type === word5.type ) {
+                pontuacao += 1;
+            }
+            if ( word6Input === word6.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word6Type === word6.type ) {
+                pontuacao += 1;
+            }
+            if ( word7Input === word7.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word7Type === word7.type ) {
+                pontuacao += 1;
+            }
+            if ( word8Input === word8.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word8Type === word8.type ) {
+                pontuacao += 1;
+            }
+            if ( word9Input === word9.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word9Type === word9.type ) {
+                pontuacao += 1;
+            }
+            if ( word10Input === word10.syllables.join('-') ) {
+                pontuacao += 1;
+            }
+            if ( word10Type === word10.type ) {
+                pontuacao += 1;
+            }
+            let resultTemplate = `
+                <div class="pt-3 pb-4">
+                    <p class="h3 text-center font-weight-bold">Pontuação: ${ (pontuacao/2) }</p>
+                </div>
+            `;
+
             $('.results-wrapper').html(
                 word1ResultTemplate +
                 word2ResultTemplate +
@@ -419,10 +491,11 @@ import 'bootstrap';
                 word7ResultTemplate +
                 word8ResultTemplate +
                 word9ResultTemplate +
-                word10ResultTemplate
+                word10ResultTemplate +
+                resultTemplate
             );
 
-            $('html, body').animate({ scrollTop: 800 }, 450);
+            $('html, body').animate({ scrollTop: 2800 }, 450);
             $(this).attr('disabled', 'true');
             $(this).addClass('disabled');
         });
