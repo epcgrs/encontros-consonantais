@@ -34,12 +34,18 @@ import 'bootstrap';
                     <p class="h4 mb-3">Palavra: Gráfico</p>
                     <div class="form-group">
                         <p class="h5">Sílabas: grá-fi-co</p>
+                        <p class="pt-2">
+                           ${(word1Input === word1.syllables.join('-')) ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;' }
+                        </p>
                     </div>
                     <div class="form-group">
                         <p class="h5">Tipo: ECP</p>
+                        <p class="pt-2">
+                        ${ (word1Type === word1.type) ? 'Parabéns! &#x1F604;' : 'Que pena! &#x1F615;' }
+                        </p>
                     </div>
                     <div class="result">
-                    ${ (word1Input === word1.syllables.join('-') && word1Type === word1.type) ? 'Acertou! &#x1F604;' : 'Errou! &#x1F615;' }
+                    
                     </div>
                 </li>
             </ul>
