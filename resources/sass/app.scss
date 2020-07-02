@@ -1,11 +1,17 @@
 //
 @import '~bootstrap';
-body {
-  background-color: #3399CC;
-  .bg-overlay {
-    img {
-      display: block;
-      margin: auto;
-    }
-  }
+//body {
+//  background-color: #3399CC;
+//  .bg-overlay {
+//    img {
+//      display: block;
+//      margin: auto;
+//    }
+//  }
+//}
+
+@import "dump";
+
+#app {
+  padding-top: 300px;
 }
