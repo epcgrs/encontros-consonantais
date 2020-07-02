@@ -477,7 +477,7 @@ import 'bootstrap';
             }
             let resultTemplate = `
                 <div class="pt-3 pb-4">
-                    <p class="h3 text-center font-weight-bold">Pontuação: ${ (pontuacao/2) }</p>
+                    <p class="h3 text-center font-weight-bold">Você acertou ${ pontuacao } de 20</p>
                 </div>
             `;
 

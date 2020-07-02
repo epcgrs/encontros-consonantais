@@ -37436,7 +37436,7 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
         pontuacao += 1;
       }
 
-      var resultTemplate = "\n                <div class=\"pt-3 pb-4\">\n                    <p class=\"h3 text-center font-weight-bold\">Pontua\xE7\xE3o: ".concat(pontuacao / 2, "</p>\n                </div>\n            ");
+      var resultTemplate = "\n                <div class=\"pt-3 pb-4\">\n                    <p class=\"h3 text-center font-weight-bold\">Voc\xEA acertou ".concat(pontuacao, " de 20</p>\n                </div>\n            ");
       $('.results-wrapper').html(word1ResultTemplate + word2ResultTemplate + word3ResultTemplate + word4ResultTemplate + word5ResultTemplate + word6ResultTemplate + word7ResultTemplate + word8ResultTemplate + word9ResultTemplate + word10ResultTemplate + resultTemplate);
       $('html, body').animate({
         scrollTop: 2800
